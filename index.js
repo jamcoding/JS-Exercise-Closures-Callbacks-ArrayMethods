@@ -180,8 +180,8 @@ function processDuplicateFree(/* CODE HERE ONLY AFTER COMPLETING ALL OTHER TASKS
 */
 function getFullNames(runners) {
   let arr = [];
-  runners.forEach(function(runner) {
-    arr.push(`${runner.last_name}, ${runner.first_name}`);
+  runners.forEach(function(runners) {
+    arr.push(`${runners.last_name}, ${runners.first_name}`);
   });
   return arr;
 }
@@ -199,7 +199,11 @@ function getFullNames(runners) {
  * The first names appear in the array in the same order the runners appear in the `runners` array.
 */
 function firstNamesAllCaps(runners) {
-  
+  let firstName = [];
+  for (let i = 0; i < runners.length; i++) {
+    firstName.push(runners[i].first_name);
+  }
+  return firstName.map(x => x.toUpperCase());
 }
 
 /**
@@ -216,8 +220,7 @@ function firstNamesAllCaps(runners) {
  * The runners in the array appear in the same order they appear in the `runners` array.
 */
 function getRunnersByTShirtSize(runners, tShirtSize) {
-  const arr = []; 
-  return runners.filter(tShirt);
+  
 }
 
 /**
@@ -231,9 +234,7 @@ function getRunnersByTShirtSize(runners, tShirtSize) {
  * @returns a number which is the sum of the donations by all runners.
 */
 function tallyUpDonations(runners) {
-  // return runners.reduce((total, donation) => {
-  //   return total += runners.donation;
-  // )}
+  return runners.reduce((total, donation) => total + donation, 0);
 }
 
 /////////////// CLOSURES ///////////////
@@ -254,10 +255,11 @@ function tallyUpDonations(runners) {
 */
 function counterMaker() {
   // BROKEN CODE STARTS
-  const count = 0;
+  let count = 0;
   function counter() {
-    ++count;
+    return count++;
   }
+  return count;
   // BROKEN CODE ENDS
 }
 
