@@ -288,13 +288,11 @@ function counterMaker() {
 */
 function counterMakerWithLimit(max) {
   let count = 0;
-  return function counter() {
-    if (count <= max) {
-      return count++;
-    } else {
-      return count = 0;
-    }
+  function counter() {
+    count > max ? (count = 0) : count;
+    return count++;
   }
+  return counter;
 }
 
 /////////////// END OF CHALLENGE ///////////////
